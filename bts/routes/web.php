@@ -17,6 +17,7 @@ use App\Http\Controllers\ProfController;
 use App\Http\Controllers\ClasseController;
 use App\Http\Controllers\MatiereController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,6 +30,27 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 
 // Routes pour les pages student/prof/director
 Route::middleware('auth')->group(function () {
+
+// =================== CHAT ===================
+// Page principale du chat (sidebar + messages)
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+
+// Démarrer un nouveau chat individuel (GET)
+    Route::get('/chat/start', [ChatController::class, 'start'])->name('chat.start');
+
+// Conversation avec un utilisateur existant
+    Route::get('/chat/{user}', [ChatController::class, 'conversation'])->name('chat.conversation');
+
+// Conversation de groupe
+    Route::get('/group/{group}', [ChatController::class, 'group'])->name('chat.group');
+
+// Envoyer un message (individuel ou groupe)
+    Route::post('/chat/send', [ChatController::class, 'send'])->name('chat.send');
+
+// Créer un nouveau groupe
+    Route::post('/chat/create-group', [ChatController::class, 'createGroup'])->name('chat.createGroup');
+
+
 
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

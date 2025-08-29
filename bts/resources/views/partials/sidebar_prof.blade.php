@@ -5,8 +5,11 @@
             <a href="{{ route('dashboard') }}" class="block px-3 py-2 rounded hover:bg-gray-200">Tableau de bord</a>
         </li>
         <li>
-            <a href="{{ route('messages.index') }}" class="block px-3 py-2 rounded hover:bg-gray-200">Messages</a>
+            <a href="{{ route('chat.index') }}" class="block px-3 py-2 rounded hover:bg-gray-200">
+                Messages
+            </a>
         </li>
+
         <li>
             <a href="{{ route('drive.index') }}" class="block px-3 py-2 rounded hover:bg-gray-200">Drive</a>
         </li>

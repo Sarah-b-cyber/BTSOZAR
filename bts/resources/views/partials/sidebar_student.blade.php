@@ -11,11 +11,11 @@
 
         <!-- Messages -->
         <li>
-            <a href="{{ route('messages.index') }}"
-               class="block px-4 py-2 rounded hover:bg-gray-200">
+            <a href="{{ route('chat.index') }}" class="block px-3 py-2 rounded hover:bg-gray-200">
                 Messages
             </a>
         </li>
+
 
         <!-- Drive -->
         <li>
